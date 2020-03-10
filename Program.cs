@@ -22,6 +22,18 @@ namespace TubesStima
         {
             edges.Add(new Edge(name, to, prob));
         }
+
+        public bool EdgeExists(string to)
+        {
+            foreach (var item in edges)
+            {
+                if (item.ToTown == to)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     class Edge
