@@ -8,12 +8,18 @@ namespace TubesStima
     {
         private string name;
         private int population;
+        private int day;
+        private bool? infected;
         public List<Edge> edges;
 
         public int Population { get => population; set => population = value; }
         public string Name { get => name; set => name = value; }
+        public int Day { get => day; set => day = value; }
+        public bool? Infected { get => infected; set => infected = value; }
         public Vertex(string town, int pop)
         {
+            day = 0;
+            infected = null;
             name = town;
             population = pop;
             edges = new List<Edge>();
@@ -127,6 +133,15 @@ namespace TubesStima
             }
         }
 
+        public void VertexInit()
+        {
+            foreach (var item in towns)
+            {
+                item.Value.Day = 0;
+                item.Value.Infected = null;
+            }
+            towns[start].Infected = true;
+        }
         /*
          Jumlah masyarakat yang terkena virus = P(A) / (1 + (P(A) - 1)e^(-0.25T(A)))
          = t(A) * P(A) / 20
