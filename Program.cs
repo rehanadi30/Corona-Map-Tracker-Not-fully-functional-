@@ -103,11 +103,13 @@ namespace TubesStima
 
         public void QueueInit()
         {
-            string[] temp = { start, " "};
+            string[] temp;
             queue.Clear();
             Vertex startVertex = towns[start];
             foreach (Edge edge in startVertex.edges)
             {
+                temp = new string[2];
+                temp[0] = start;
                 temp[1] = edge.ToTown;
                 queue.Enqueue(temp);
             }
@@ -131,10 +133,20 @@ namespace TubesStima
         {
             Console.WriteLine("Hello World!");
             BFS pr = new BFS();
+            pr.QueueInit();
             foreach (var item in pr.towns)
             {
                 Console.WriteLine(item.Key + " " + item.Value.Population);
+                foreach (var i in item.Value.edges)
+                {
+                    Console.WriteLine("\t" + i.ToTown + " " + i.Probability);
+                }
             }
+            foreach (var item in pr.queue)
+            {
+                Console.WriteLine(item[0] + " " + item[1]);
+            }
+
 
             Console.ReadLine();
         }
