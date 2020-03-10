@@ -1,0 +1,9 @@
+D:\Project\Peace was never and option\Peace was never and option\bin\Debug\Peace was never and option.exe.config
+D:\Project\Peace was never and option\Peace was never and option\bin\Debug\Peace was never and option.exe
+D:\Project\Peace was never and option\Peace was never and option\bin\Debug\Peace was never and option.pdb
+D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace was never and option.csprojAssemblyReference.cache
+D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace_was_never_and_option.Form1.resources
+D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace_was_never_and_option.Properties.Resources.resources
+D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace was never and option.csproj.GenerateResource.cache
+D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace was never and option.exe
+D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace was never and option.pdb
