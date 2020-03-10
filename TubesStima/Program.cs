@@ -146,9 +146,14 @@ namespace TubesStima
          Jumlah masyarakat yang terkena virus = P(A) / (1 + (P(A) - 1)e^(-0.25T(A)))
          = t(A) * P(A) / 20
              */
-        public double CountInfected()
+        public double CountInfected(Vertex suspectTown)
         {
-            return 0;
+            double e, InfectedPopulation;
+            int res;
+            e = Math.E;
+            InfectedPopulation = suspectTown.Population / (1 + ((suspectTown.Population - 1) * Math.Pow(e, -0.25 * suspectTown.Day)));
+            res = Convert.ToInt32(InfectedPopulation);
+            return res;
         }
 
         //Jika S(A,B) = I(A,t).Tr(A,B) > 1, return true
