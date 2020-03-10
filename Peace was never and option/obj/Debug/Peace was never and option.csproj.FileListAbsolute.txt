@@ -7,3 +7,14 @@ D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace
 D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace was never and option.csproj.GenerateResource.cache
 D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace was never and option.exe
 D:\Project\Peace was never and option\Peace was never and option\obj\Debug\Peace was never and option.pdb
+D:\Github\Tubes2Stima\Peace was never and option\bin\Debug\Peace was never and option.exe.config
+D:\Github\Tubes2Stima\Peace was never and option\bin\Debug\Peace was never and option.exe
+D:\Github\Tubes2Stima\Peace was never and option\bin\Debug\Peace was never and option.pdb
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace was never and option.csprojAssemblyReference.cache
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace_was_never_and_option.Form1.resources
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace_was_never_and_option.Properties.Resources.resources
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace was never and option.csproj.GenerateResource.cache
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace was never and option.exe
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace was never and option.pdb
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace_was_never_and_option.Form2.resources
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace_was_never_and_option.Form3.resources
