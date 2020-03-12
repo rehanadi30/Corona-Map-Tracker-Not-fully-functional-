@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -14,6 +14,10 @@ namespace Peace_was_never_and_option
         int jumlahHari = -999;
         OpenFileDialog openFile = new OpenFileDialog();
         string line = "";
+        BFS bfs = new BFS();
+        Queue<string> temp = new Queue<string>();
+        bool mapFile, popFile = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -33,9 +37,15 @@ namespace Peace_was_never_and_option
 
         }
 
-        private void button1_Click(object sender, EventArgs e) //File Input
+        private void button1_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form2());
+            if (FormTerbuka == 1)
+            {
+                showSubMenu(panelFILEINPUTSubMenu);
+            }
+            else
+                showSubMenu(panelFILEINPUTSubMenu);
+            FormTerbuka = 1;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -45,19 +55,35 @@ namespace Peace_was_never_and_option
 
         private void button2_Click(object sender, EventArgs e) //Masukin txt Map
         {
+            int n;
+            string[] split;
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 StreamReader sr = new StreamReader(openFile.FileName);
-                while (line != null)
+                line = sr.ReadLine();
+                split = line.Split(' ');
+                n = Convert.ToInt32(split[0]);
+                for (int i = 0; i < n; i++)
                 {
                     line = sr.ReadLine();
-                    Console.WriteLine(line);
-                    if (line != null)
+                    split = line.Split(' ');
+                    try
                     {
-                        //listBox1.Items.Add(line);
+                        bfs.towns[split[0]].AddEdge(split[1], Convert.ToDouble(split[2]));
+                    } catch (Exception exc){
+                        temp.Enqueue(line);
                     }
                 }
                 sr.Close();
+                foreach (var item in bfs.towns)
+                {
+                    Console.WriteLine(item.Key);
+                    foreach (var edge in item.Value.edges)
+                    {
+                        Console.WriteLine("\t" + edge.ToTown + " " + edge.Probability);
+                    }
+                }
+                mapFile = true;
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -96,19 +122,36 @@ namespace Peace_was_never_and_option
 
         private void btnPopulasi_Click(object sender, EventArgs e) //Tombol Populasi
         {
+            string[] split;
+            int n;
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                BFS temp = new BFS();
                 StreamReader sr = new StreamReader(openFile.FileName);
-                while (line != null)
+                line = sr.ReadLine();
+                split = line.Split(' ');
+                n = Convert.ToInt32(split[0]);
+                bfs.start = split[1];
+
+                for (int i = 0; i < n; i++)
                 {
                     line = sr.ReadLine();
-                    if (line != null)
-                    {
-                        //listBox1.Items.Add(line);
-                    }
+                    split = line.Split(' ');
+                    bfs.towns.Add(split[0], new Vertex(split[0], Convert.ToInt32(split[1])));
                 }
                 sr.Close();
+
+                string s;
+                while (temp.Count > 0)
+                {
+                    s = temp.Dequeue();
+                    split = s.Split(' ');
+                    bfs.towns[split[0]].AddEdge(split[1], Convert.ToDouble(split[2]));
+                }
+                foreach (var item in bfs.towns)
+                {
+                    Console.WriteLine(item.Key + " " + item.Value.Population);
+                }
+                popFile = true;
             }
         }
 
@@ -306,13 +349,13 @@ namespace Peace_was_never_and_option
 
             public BFS()
             {
-                int n;
-                string[] split;
+                //int n;
+                //string[] split;
 
                 towns = new Dictionary<string, Vertex>();
                 queue = new Queue<string[]>();
 
-                /* try
+                /*try
                 {
                     StreamReader popFile = new StreamReader(openFile.FileName);
                     StreamReader mapFile = new StreamReader(openFile.FileName);
@@ -341,7 +384,7 @@ namespace Peace_was_never_and_option
                         var value = double.Parse(split[2], CultureInfo.InvariantCulture);
                         towns[split[0]].AddEdge(split[1], value);
                     }
-                    /*foreach (var item in towns)
+                    foreach (var item in towns)
                     {
                         Console.WriteLine(item.Key);
                         foreach (var i in item.Value.edges)
@@ -447,3 +490,4 @@ namespace Peace_was_never_and_option
         }
     }
 }
+
