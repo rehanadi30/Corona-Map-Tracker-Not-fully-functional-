@@ -2,15 +2,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Globalization;
 using Microsoft.VisualBasic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Text;
-using Microsoft.Msagl.GraphViewerGdi;
-using Microsoft.Msagl.Drawing;
 //using TubesStima;
 
 namespace Peace_was_never_and_option
@@ -18,7 +10,7 @@ namespace Peace_was_never_and_option
     public partial class Form1 : Form
     {
         int FormTerbuka = 1;
-        int jumlahHari = -999;
+        static int jumlahHari = -999;
         OpenFileDialog openFile = new OpenFileDialog();
         string line = "";
         BFS bfs = new BFS();
@@ -178,7 +170,7 @@ namespace Peace_was_never_and_option
             System.Diagnostics.Process.Start(sInfo);
         }
 
-        private void button3_Click_1(object sender, EventArgs e) //Tombol Generate
+        public void button3_Click_1(object sender, EventArgs e) //Tombol Generate
         {
             if (jumlahHari == -999)
             {
@@ -186,21 +178,22 @@ namespace Peace_was_never_and_option
             }
             else
             {
-                //create a form 
-                System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+                bfs.Exec();
+                /*//Membuat Form Awal
+                Form form = new System.Windows.Forms.Form();
                 //create a viewer object 
                 Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
                 //create a graph object 
                 Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
-                /* //create the graph content 
-                graph.AddEdge("A", "B");
-                graph.AddEdge("B", "C");
-                graph.AddEdge("A", "C").Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
-                graph.FindNode("A").Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
-                graph.FindNode("B").Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;
-                Microsoft.Msagl.Drawing.Node c = graph.FindNode("C");
-                c.Attr.FillColor = Microsoft.Msagl.Drawing.Color.PaleGreen;
-                c.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Diamond; */
+                // Create the graph content
+                foreach (var item in bfs.towns)
+                {
+                    foreach (var edge in item.Value.edges)
+                    {
+                        graph.AddEdge(item.Key, edge.ToTown);
+                    }
+                }
+                graph.FindNode(bfs.start).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
                 //bind the graph to the viewer 
                 viewer.Graph = graph;
                 //associate the viewer with the form 
@@ -210,6 +203,33 @@ namespace Peace_was_never_and_option
                 form.ResumeLayout();
                 //show the form 
                 form.ShowDialog();
+
+                //Membuat form selanjutnya
+                for (int i = 1; i<bfs.towns.Count; i++)
+                {
+                    //create a viewer object 
+                    Microsoft.Msagl.GraphViewerGdi.GViewer viewerNext = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+                    //create a graph object 
+                    Microsoft.Msagl.Drawing.Graph graphNext = new Microsoft.Msagl.Drawing.Graph("graph");
+                    foreach (var item in bfs.towns)
+                    {
+                        if(item.Value.Infected == true)
+                        {
+                            graph.FindNode(item.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Yellow;
+                            //bind the graph to the viewer 
+                            viewer.Graph = graph;
+                            //associate the viewer with the form 
+                            form.SuspendLayout();
+                            viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                            form.Controls.Add(viewer);
+                            form.ResumeLayout();
+                            //show the form 
+                            form.ShowDialog();
+                        }
+                    }
+                }*/
+
+
             }
         }
         private void button1_Click_1(object sender, EventArgs e)
@@ -587,6 +607,104 @@ namespace Peace_was_never_and_option
                     }
                 }
                 return day + suspectTown.Day;
+            }
+            public void Exec()
+            {
+                Console.WriteLine("Hello World!");
+                string userInput;
+                int targetDate, spreadDur, time;
+                Vertex curTown, tarTown;
+                //userInput = Console.ReadLine();
+                //targetDate = Convert.ToInt32(userInput);
+                towns[start].Day = 0;
+                Console.WriteLine("Tanggal dimasukkan : " + jumlahHari);
+                queue.Clear();
+                AddQueue(towns[start]);
+                #region FormAwal
+                //Membuat Form
+                Form form = new System.Windows.Forms.Form();
+                //create a viewer object 
+                Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+                //create a graph object 
+                Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
+                // Create the graph content
+                foreach (var item in towns)
+                {
+                    foreach (var edge in item.Value.edges)
+                    {
+                        graph.AddEdge(item.Key, edge.ToTown);
+                    }
+                }
+                graph.FindNode(start).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
+                //bind the graph to the viewer 
+                viewer.Graph = graph;
+                //associate the viewer with the form 
+                form.SuspendLayout();
+                viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                form.Controls.Add(viewer);
+                form.ResumeLayout();
+                //show the form 
+                form.ShowDialog();
+                #endregion
+                while (queue.Count != 0)
+                {
+                    string[] temp;
+                    temp = queue.Peek();
+                    Console.WriteLine(" Cek Penyebaran dari " + temp[0] + " -> " + temp[1]);
+                    curTown = towns[temp[0]];
+                    tarTown = towns[temp[1]];
+                    spreadDur = jumlahHari - curTown.Day;
+                    // Console.WriteLine(" Virus pertama kali muncul di daerah A pada T(A) = " + curTown.Day + " maka t(A) = " + targetDate + " - " + curTown.Day + "=" + spreadDur);
+                    if (Spread(temp[0], temp[1], spreadDur))
+                    {
+                        Console.WriteLine("Karena S(A,B) > 1, maka virus berhasil tersebar dari daerah " + temp[0] + " ke daerah  " + temp[1]);
+                        Console.WriteLine("Selanjutnya, cari tahu kapan virus berhasil tersebar ke daerah " + temp[1]);
+                        towns[temp[1]].Infected = true;
+                        time = SpreadTime(temp[0], temp[1]);
+                        Console.WriteLine("S(A,B) = " + time);
+                        if ((time < towns[temp[1]].Day) || (towns[temp[1]].Day == -999))
+                        {
+                            towns[temp[1]].Day = time;
+                            AddQueue(towns[temp[1]]);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Karena S(A,B) < 1, maka virus tidak berhasil tersebar dari daerah " + temp[0] + " ke daerah  " + temp[1]);
+                        towns[temp[0]].Infected = false;
+                    }
+                    queue.Dequeue();
+                    Console.Write("q = [ ");
+                    foreach (var item in queue)
+                    {
+                        Console.Write(item[0] + "->" + item[1] + " , ");
+                    }
+                    Console.WriteLine("] ");
+                    Console.WriteLine();
+                    #region formNextCity
+                        //create a viewer object 
+                        Microsoft.Msagl.GraphViewerGdi.GViewer viewerNext = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+                        //create a graph object 
+                        Microsoft.Msagl.Drawing.Graph graphNext = new Microsoft.Msagl.Drawing.Graph("graph");
+                        foreach (var item in towns)
+                        {
+                            if (item.Value.Infected == true && item.Key != start)
+                            {
+                                graph.FindNode(item.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Yellow;
+                                //bind the graph to the viewer 
+                                viewer.Graph = graph;
+                                //associate the viewer with the form 
+                                form.SuspendLayout();
+                                viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                                form.Controls.Add(viewer);
+                                form.ResumeLayout();
+                                //show the form 
+                                form.ShowDialog();
+                            }
+                        }
+                    #endregion
+                }
+                Console.ReadLine();
             }
         }
     }

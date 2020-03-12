@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutomaticGraphLayout">
+      <HintPath>..\dep\AutomaticGraphLayout.dll</HintPath>
+    </Reference>
+    <Reference Include="AutomaticGraphLayout.Drawing">
+      <HintPath>..\dep\AutomaticGraphLayout.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Msagl.GraphViewerGdi">
+      <HintPath>..\dep\Microsoft.Msagl.GraphViewerGdi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -75,7 +84,6 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Microsoft\Msagl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
