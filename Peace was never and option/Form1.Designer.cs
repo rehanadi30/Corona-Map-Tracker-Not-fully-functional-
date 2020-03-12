@@ -53,6 +53,9 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.linkWebWHO = new System.Windows.Forms.LinkLabel();
             this.SELAMATDATANG = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnMAP = new System.Windows.Forms.Button();
+            this.btnPOP = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -131,6 +134,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.btnFileInput);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 123);
@@ -158,6 +162,8 @@
             // 
             // panelFILEINPUTSubMenu
             // 
+            this.panelFILEINPUTSubMenu.Controls.Add(this.btnPOP);
+            this.panelFILEINPUTSubMenu.Controls.Add(this.btnMAP);
             this.panelFILEINPUTSubMenu.Controls.Add(this.panel5);
             this.panelFILEINPUTSubMenu.Location = new System.Drawing.Point(0, 176);
             this.panelFILEINPUTSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -363,6 +369,41 @@
             this.SELAMATDATANG.Text = "AWAS CORONA!!!";
             this.SELAMATDATANG.Click += new System.EventHandler(this.SELAMATDATANG_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Sienna;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 55);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(189, 55);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "FILE INPUT";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnMAP
+            // 
+            this.btnMAP.Location = new System.Drawing.Point(0, 9);
+            this.btnMAP.Name = "btnMAP";
+            this.btnMAP.Size = new System.Drawing.Size(189, 55);
+            this.btnMAP.TabIndex = 3;
+            this.btnMAP.Text = "MAP";
+            this.btnMAP.UseVisualStyleBackColor = true;
+            this.btnMAP.Click += new System.EventHandler(this.btnMAP_Click);
+            // 
+            // btnPOP
+            // 
+            this.btnPOP.Location = new System.Drawing.Point(0, 64);
+            this.btnPOP.Name = "btnPOP";
+            this.btnPOP.Size = new System.Drawing.Size(189, 46);
+            this.btnPOP.TabIndex = 4;
+            this.btnPOP.Text = "POPULASI";
+            this.btnPOP.UseVisualStyleBackColor = true;
+            this.btnPOP.Click += new System.EventHandler(this.btnPOP_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -423,6 +464,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPOP;
+        private System.Windows.Forms.Button btnMAP;
     }
 }
 

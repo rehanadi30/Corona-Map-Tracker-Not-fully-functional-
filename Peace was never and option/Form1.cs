@@ -4,6 +4,13 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.VisualBasic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Text;
+using Microsoft.Msagl.GraphViewerGdi;
+using Microsoft.Msagl.Drawing;
 //using TubesStima;
 
 namespace Peace_was_never_and_option
@@ -179,7 +186,30 @@ namespace Peace_was_never_and_option
             }
             else
             {
-                openChildForm(new Form3());
+                //create a form 
+                System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+                //create a viewer object 
+                Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+                //create a graph object 
+                Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
+                /* //create the graph content 
+                graph.AddEdge("A", "B");
+                graph.AddEdge("B", "C");
+                graph.AddEdge("A", "C").Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+                graph.FindNode("A").Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
+                graph.FindNode("B").Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;
+                Microsoft.Msagl.Drawing.Node c = graph.FindNode("C");
+                c.Attr.FillColor = Microsoft.Msagl.Drawing.Color.PaleGreen;
+                c.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Diamond; */
+                //bind the graph to the viewer 
+                viewer.Graph = graph;
+                //associate the viewer with the form 
+                form.SuspendLayout();
+                viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                form.Controls.Add(viewer);
+                form.ResumeLayout();
+                //show the form 
+                form.ShowDialog();
             }
         }
         private void button1_Click_1(object sender, EventArgs e)
@@ -337,6 +367,77 @@ namespace Peace_was_never_and_option
                 toTown = to;
                 fromTown = from;
                 probability = prob;
+            }
+        }
+
+        private void btnMAP_Click(object sender, EventArgs e)
+        {
+            int n;
+            string[] split;
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(openFile.FileName);
+                line = sr.ReadLine();
+                split = line.Split(' ');
+                n = Convert.ToInt32(split[0]);
+                for (int i = 0; i < n; i++)
+                {
+                    line = sr.ReadLine();
+                    split = line.Split(' ');
+                    try
+                    {
+                        bfs.towns[split[0]].AddEdge(split[1], Convert.ToDouble(split[2]));
+                    }
+                    catch (Exception exc)
+                    {
+                        temp.Enqueue(line);
+                    }
+                }
+                sr.Close();
+                foreach (var item in bfs.towns)
+                {
+                    Console.WriteLine(item.Key);
+                    foreach (var edge in item.Value.edges)
+                    {
+                        Console.WriteLine("\t" + edge.ToTown + " " + edge.Probability);
+                    }
+                }
+                mapFile = true;
+            }
+        }
+
+        private void btnPOP_Click(object sender, EventArgs e)
+        {
+            string[] split;
+            int n;
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(openFile.FileName);
+                line = sr.ReadLine();
+                split = line.Split(' ');
+                n = Convert.ToInt32(split[0]);
+                bfs.start = split[1];
+
+                for (int i = 0; i < n; i++)
+                {
+                    line = sr.ReadLine();
+                    split = line.Split(' ');
+                    bfs.towns.Add(split[0], new Vertex(split[0], Convert.ToInt32(split[1])));
+                }
+                sr.Close();
+
+                string s;
+                while (temp.Count > 0)
+                {
+                    s = temp.Dequeue();
+                    split = s.Split(' ');
+                    bfs.towns[split[0]].AddEdge(split[1], Convert.ToDouble(split[2]));
+                }
+                foreach (var item in bfs.towns)
+                {
+                    Console.WriteLine(item.Key + " " + item.Value.Population);
+                }
+                popFile = true;
             }
         }
 
