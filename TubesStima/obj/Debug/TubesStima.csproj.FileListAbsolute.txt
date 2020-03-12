@@ -4,3 +4,6 @@ C:\Users\kirana\Desktop\as\TubesStima\TubesStima\bin\Debug\TubesStima.pdb
 C:\Users\kirana\Desktop\as\TubesStima\TubesStima\obj\Debug\TubesStima.csprojAssemblyReference.cache
 C:\Users\kirana\Desktop\as\TubesStima\TubesStima\obj\Debug\TubesStima.exe
 C:\Users\kirana\Desktop\as\TubesStima\TubesStima\obj\Debug\TubesStima.pdb
+D:\Github\Tubes2Stima\TubesStima\obj\Debug\TubesStima.csprojAssemblyReference.cache
+D:\Github\Tubes2Stima\TubesStima\obj\Debug\TubesStima.exe
+D:\Github\Tubes2Stima\TubesStima\obj\Debug\TubesStima.pdb
