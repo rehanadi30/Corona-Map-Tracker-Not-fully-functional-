@@ -1,5 +1,0 @@
-C:\Users\kirana\Desktop\as\TubesStima\TubesStima\bin\Release\TubesStima.exe.config
-C:\Users\kirana\Desktop\as\TubesStima\TubesStima\bin\Release\TubesStima.exe
-C:\Users\kirana\Desktop\as\TubesStima\TubesStima\bin\Release\TubesStima.pdb
-C:\Users\kirana\Desktop\as\TubesStima\TubesStima\obj\Release\TubesStima.exe
-C:\Users\kirana\Desktop\as\TubesStima\TubesStima\obj\Release\TubesStima.pdb
