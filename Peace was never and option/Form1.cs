@@ -51,6 +51,7 @@ namespace Peace_was_never_and_option
                 while (line != null)
                 {
                     line = sr.ReadLine();
+                    Console.WriteLine(line);
                     if (line != null)
                     {
                         //listBox1.Items.Add(line);
