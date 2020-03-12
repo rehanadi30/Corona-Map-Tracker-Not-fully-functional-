@@ -18,3 +18,5 @@ D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace was never and o
 D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace was never and option.pdb
 D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace_was_never_and_option.Form2.resources
 D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace_was_never_and_option.Form3.resources
+D:\Github\Tubes2Stima\Peace was never and option\bin\Debug\TubesStima.exe
+D:\Github\Tubes2Stima\Peace was never and option\obj\Debug\Peace was never and option.csproj.CopyComplete

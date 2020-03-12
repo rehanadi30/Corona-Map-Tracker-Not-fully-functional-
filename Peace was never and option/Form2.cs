@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Peace_was_never_and_option
 {
@@ -39,7 +40,12 @@ namespace Peace_was_never_and_option
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            this.Close();
+            string Content = Interaction.InputBox("Halo", "", "", 500, 300);
+
+            if (Content != "")
+            {
+                MessageBox.Show(Content);
+            }
         }
     }
 }

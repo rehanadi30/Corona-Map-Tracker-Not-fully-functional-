@@ -51,6 +51,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.childPanel = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.linkWebWHO = new System.Windows.Forms.LinkLabel();
             this.SELAMATDATANG = new System.Windows.Forms.Label();
@@ -260,15 +261,16 @@
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.BackColor = System.Drawing.Color.Green;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(0, 692);
+            this.button3.Location = new System.Drawing.Point(0, 884);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 92);
+            this.button3.Size = new System.Drawing.Size(189, 96);
             this.button3.TabIndex = 3;
             this.button3.Text = "GENERATE!!";
             this.button3.UseVisualStyleBackColor = false;
@@ -298,11 +300,11 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(8)))), ((int)(((byte)(5)))));
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button4.ForeColor = System.Drawing.Color.Red;
+            this.button4.ForeColor = System.Drawing.Color.Transparent;
             this.button4.Location = new System.Drawing.Point(1663, 0);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
@@ -343,6 +345,7 @@
             // childPanel
             // 
             this.childPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.childPanel.Controls.Add(this.linkLabel1);
             this.childPanel.Controls.Add(this.panel10);
             this.childPanel.Controls.Add(this.linkWebWHO);
             this.childPanel.Controls.Add(this.SELAMATDATANG);
@@ -354,10 +357,22 @@
             this.childPanel.TabIndex = 4;
             this.childPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.childPanel_Paint);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.linkLabel1.Location = new System.Drawing.Point(732, 676);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(209, 26);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "SUMBER GAMBAR";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // panel10
             // 
             this.panel10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel10.BackgroundImage")));
-            this.panel10.Location = new System.Drawing.Point(633, 220);
+            this.panel10.Location = new System.Drawing.Point(535, 256);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(586, 401);
             this.panel10.TabIndex = 2;
@@ -366,7 +381,7 @@
             // 
             this.linkWebWHO.AutoSize = true;
             this.linkWebWHO.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.linkWebWHO.Location = new System.Drawing.Point(739, 171);
+            this.linkWebWHO.Location = new System.Drawing.Point(628, 171);
             this.linkWebWHO.Name = "linkWebWHO";
             this.linkWebWHO.Size = new System.Drawing.Size(393, 26);
             this.linkWebWHO.TabIndex = 1;
@@ -378,7 +393,7 @@
             // 
             this.SELAMATDATANG.AutoSize = true;
             this.SELAMATDATANG.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.SELAMATDATANG.Location = new System.Drawing.Point(620, 95);
+            this.SELAMATDATANG.Location = new System.Drawing.Point(522, 86);
             this.SELAMATDATANG.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SELAMATDATANG.Name = "SELAMATDATANG";
             this.SELAMATDATANG.Size = new System.Drawing.Size(599, 76);
@@ -447,6 +462,7 @@
         private System.Windows.Forms.Button btnHari;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

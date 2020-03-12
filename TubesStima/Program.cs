@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace TubesStima
 {
-    class Vertex
+    public class Vertex
     {
         private string name;
         private int population;
@@ -43,7 +45,7 @@ namespace TubesStima
         }
     }
 
-    class Edge
+    public class Edge
     {
         private string fromTown;
         private string toTown;
@@ -60,13 +62,15 @@ namespace TubesStima
             probability = prob;
         }
     }
-    class BFS
+
+    public class BFS
     {
+        OpenFileDialog openFile = new OpenFileDialog();
         public Dictionary<string, Vertex> towns;
         public Queue<string[]> queue;
         public string start;
 
-        BFS()
+        public BFS()
         {
             int n;
             string[] split;
@@ -76,8 +80,8 @@ namespace TubesStima
 
             try
             {
-                StreamReader popFile = new StreamReader(Directory.GetCurrentDirectory() + "\\population.txt");
-                StreamReader mapFile = new StreamReader(Directory.GetCurrentDirectory() + "\\map.txt");
+                StreamReader popFile = new StreamReader(openFile.FileName);
+                StreamReader mapFile = new StreamReader(openFile.FileName);
                 split = popFile.ReadLine().Split(' ');
                 n = Convert.ToInt32(split[0]);
                 start = split[1];
@@ -149,9 +153,9 @@ namespace TubesStima
              */
         public double CountInfected(Vertex suspectTown, int spreadDur)
         {
-            double e, InfectedPopulation;
+            double InfectedPopulation;
             int res;
-            e = Math.E;
+            //dpuble e = Math.E;
             // InfectedPopulation = suspectTown.Population / (1 + ((suspectTown.Population - 1) * Math.Pow(e, -0.25 * spreadDur)));
             InfectedPopulation = (suspectTown.Population * spreadDur) / 20;
             res = Convert.ToInt32(InfectedPopulation);
@@ -207,7 +211,7 @@ namespace TubesStima
             return day + suspectTown.Day;
         }
 
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
             BFS pr = new BFS();
@@ -259,6 +263,6 @@ namespace TubesStima
                 Console.WriteLine();
             }
             Console.ReadLine();
-        }
+        }*/
     }
 }
