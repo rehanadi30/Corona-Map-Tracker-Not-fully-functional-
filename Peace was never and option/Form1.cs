@@ -33,15 +33,9 @@ namespace Peace_was_never_and_option
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //File Input
         {
-            if (FormTerbuka == 1)
-            {
-                showSubMenu(panelFILEINPUTSubMenu);
-            }
-            else
-                showSubMenu(panelFILEINPUTSubMenu);
-            FormTerbuka = 1;
+            openChildForm(new Form2());
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -317,7 +311,7 @@ namespace Peace_was_never_and_option
                 towns = new Dictionary<string, Vertex>();
                 queue = new Queue<string[]>();
 
-                try
+                /* try
                 {
                     StreamReader popFile = new StreamReader(openFile.FileName);
                     StreamReader mapFile = new StreamReader(openFile.FileName);
@@ -353,7 +347,7 @@ namespace Peace_was_never_and_option
                         {
                             Console.WriteLine("\t" + i.ToTown + " " + i.Probability);
                         }
-                    }*/
+                    }
                     mapFile.Close();
                 }
                 catch (Exception e)
@@ -361,7 +355,7 @@ namespace Peace_was_never_and_option
                     Console.WriteLine(e);
                     Console.ReadLine();
                     Environment.Exit(0);
-                }
+                } */
             }
 
 

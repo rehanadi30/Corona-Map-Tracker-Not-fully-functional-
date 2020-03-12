@@ -37,8 +37,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnFileInput = new System.Windows.Forms.Button();
             this.panelFILEINPUTSubMenu = new System.Windows.Forms.Panel();
-            this.btnPopulasi = new System.Windows.Forms.Button();
-            this.btnMap = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelNamaProgram = new System.Windows.Forms.Label();
@@ -118,10 +116,11 @@
             // 
             this.btnHari.AccessibleDescription = "panelFILEINPUTSubMenu";
             this.btnHari.BackColor = System.Drawing.Color.Sienna;
+            this.btnHari.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHari.FlatAppearance.BorderSize = 0;
             this.btnHari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHari.ForeColor = System.Drawing.Color.White;
-            this.btnHari.Location = new System.Drawing.Point(0, -10);
+            this.btnHari.Location = new System.Drawing.Point(0, 0);
             this.btnHari.Margin = new System.Windows.Forms.Padding(4);
             this.btnHari.Name = "btnHari";
             this.btnHari.Size = new System.Drawing.Size(189, 61);
@@ -159,8 +158,6 @@
             // 
             // panelFILEINPUTSubMenu
             // 
-            this.panelFILEINPUTSubMenu.Controls.Add(this.btnPopulasi);
-            this.panelFILEINPUTSubMenu.Controls.Add(this.btnMap);
             this.panelFILEINPUTSubMenu.Controls.Add(this.panel5);
             this.panelFILEINPUTSubMenu.Location = new System.Drawing.Point(0, 176);
             this.panelFILEINPUTSubMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -168,41 +165,6 @@
             this.panelFILEINPUTSubMenu.Size = new System.Drawing.Size(189, 110);
             this.panelFILEINPUTSubMenu.TabIndex = 7;
             this.panelFILEINPUTSubMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFILEINPUTSubMenu_Paint);
-            // 
-            // btnPopulasi
-            // 
-            this.btnPopulasi.AccessibleDescription = "panelFILEINPUTSubMenu";
-            this.btnPopulasi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnPopulasi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPopulasi.FlatAppearance.BorderSize = 0;
-            this.btnPopulasi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPopulasi.ForeColor = System.Drawing.Color.White;
-            this.btnPopulasi.Location = new System.Drawing.Point(0, 55);
-            this.btnPopulasi.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPopulasi.Name = "btnPopulasi";
-            this.btnPopulasi.Size = new System.Drawing.Size(189, 55);
-            this.btnPopulasi.TabIndex = 5;
-            this.btnPopulasi.Text = "Populasi";
-            this.btnPopulasi.UseVisualStyleBackColor = false;
-            this.btnPopulasi.Click += new System.EventHandler(this.btnPopulasi_Click);
-            // 
-            // btnMap
-            // 
-            this.btnMap.AccessibleDescription = "panelFILEINPUTSubMenu";
-            this.btnMap.AccessibleName = "panelFILEINPUTSubMenu";
-            this.btnMap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnMap.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMap.FlatAppearance.BorderSize = 0;
-            this.btnMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMap.ForeColor = System.Drawing.Color.White;
-            this.btnMap.Location = new System.Drawing.Point(0, 0);
-            this.btnMap.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMap.Name = "btnMap";
-            this.btnMap.Size = new System.Drawing.Size(189, 55);
-            this.btnMap.TabIndex = 2;
-            this.btnMap.Text = "Map\r\n";
-            this.btnMap.UseVisualStyleBackColor = false;
-            this.btnMap.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel5
             // 
@@ -443,9 +405,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnFileInput;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnMap;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnPopulasi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelFILEINPUTSubMenu;
         private System.Windows.Forms.Panel panel4;

@@ -28,57 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.SELAMATDATANG = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.btnApply = new System.Windows.Forms.Button();
+            this.btnMap = new System.Windows.Forms.Button();
+            this.btnPopulasi = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnMap
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.button1.Location = new System.Drawing.Point(1673, 1016);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(247, 67);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "RETURN";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.btnMap.Location = new System.Drawing.Point(426, 252);
+            this.btnMap.Name = "btnMap";
+            this.btnMap.Size = new System.Drawing.Size(438, 157);
+            this.btnMap.TabIndex = 0;
+            this.btnMap.Text = "INPUT MAP";
+            this.btnMap.UseVisualStyleBackColor = true;
             // 
-            // SELAMATDATANG
+            // btnPopulasi
             // 
-            this.SELAMATDATANG.AutoSize = true;
-            this.SELAMATDATANG.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.SELAMATDATANG.Location = new System.Drawing.Point(487, 162);
-            this.SELAMATDATANG.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.SELAMATDATANG.Name = "SELAMATDATANG";
-            this.SELAMATDATANG.Size = new System.Drawing.Size(852, 42);
-            this.SELAMATDATANG.TabIndex = 1;
-            this.SELAMATDATANG.Text = "Masukkan hari ke berapa yang ingin kamu periksa";
-            this.SELAMATDATANG.Click += new System.EventHandler(this.SELAMATDATANG_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 100F);
-            this.richTextBox1.Location = new System.Drawing.Point(769, 241);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(259, 239);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
-            // btnApply
-            // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnApply.Location = new System.Drawing.Point(1408, 1016);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(259, 67);
-            this.btnApply.TabIndex = 3;
-            this.btnApply.Text = "APPLY";
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            this.btnPopulasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.btnPopulasi.Location = new System.Drawing.Point(1000, 252);
+            this.btnPopulasi.Name = "btnPopulasi";
+            this.btnPopulasi.Size = new System.Drawing.Size(438, 157);
+            this.btnPopulasi.TabIndex = 1;
+            this.btnPopulasi.Text = "INPUT POPULASI";
+            this.btnPopulasi.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
@@ -86,24 +58,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.btnApply);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.SELAMATDATANG);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPopulasi);
+            this.Controls.Add(this.btnMap);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label SELAMATDATANG;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Button btnMap;
+        private System.Windows.Forms.Button btnPopulasi;
     }
 }
